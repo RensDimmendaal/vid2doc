@@ -1,0 +1,192 @@
+---
+lightbox: auto
+---
+
+# Beyond the Basics of Retrieval for Augmenting Generation (w/ Ben Clavié)
+
+## Introduction
+
+Ben Clavier is one of the talented researchers who work at Answer AI. You've already heard from several researchers from Answer AI at this conference.
+
+
+
+Ben has a background in information retrieval among other areas. He has an open-source package called Rouille, which you should check out. He brings his deep background in information retrieval to his work on RAG. He's also one of the clearest thinkers on the topic.
+
+
+## Background
+
+I'll hand it over to you, Ben, to give more details about your background and anything I may have missed. Let's jump into it.
+
+
+
+So, I think that's pretty much the key aspect of my background. You read the slide, so I—yes, I do R&D with JY. You've seen Jono in this course and other awesome people. We are a distributed R&D lab, doing AI research, and we try to be as open-source as possible because we want people to use what we build.
+
+
+
+Prior to joining Answer AI, I did a lot of NLP and kind of stumbled upon information retrieval because it's very useful, and everyone wants information retrieval. Today's talk will help clarify what information retrieval is.
+
+
+
+My claim to fame, or moderate fame at least, is the Rouille library, which makes it much easier to use a family of models called SeaBear. We will briefly mention it today but won’t go into detail. If you want to know more, feel free to ping me on Discord. I maintain the Rouille library, which we will discuss in one of the later slides.
+
+
+
+<ul class="carousel">
+
+  <li><img src="frames/0040.jpg" alt="0040.jpg" class="lightbox"></li>
+
+  <li><img src="frames/0099.jpg" alt="0099.jpg" class="lightbox"></li>
+
+</ul>
+
+## Agenda and MVP
+
+If you know me or want to follow me, you can find everything on Twitter. I share a lot of memes and chat, but some informative stuff as well. So, let's get started with what we're going to talk about today.
+
+
+
+In this half-hour talk, we’ll cover the core retrieval basics as they should exist in your pipelines. RAG is a very nebulous term, and I’ll clarify that. It’s important to ground RAG in reality because it means a lot of different things to different people.
+
+
+
+We will also cover what I call the compact MVP, which is the simplest possible implementation of RAG using vector search. I’ll also show that scary-sounding concepts like bi-encoder, cross-encoder, TF-IDF, and BM25 filtering are actually simple and can be added with just a few lines of code.
+
+
+
+Additionally, we will talk about SeaBear, but only if we have time. With that, let's move on to the agenda.
+
+
+
+<ul class="carousel">
+
+  <li><img src="frames/0123.jpg" alt="0123.jpg" class="lightbox"></li>
+
+  <li><img src="frames/0153.jpg" alt="0153.jpg" class="lightbox"></li>
+
+</ul>
+
+## Monitoring and Evaluation
+
+It's important to have a clear agenda about what we won't cover today because those are just as important for RAG. Monitoring and improving RAG systems are critical because RAGs are living systems that need continuous improvement. Jon covered that well in his talk last week, which I recommend watching.
+
+
+
+We won’t talk about evaluations today, but they are extremely important. Joe will cover them in his talk. Benchmarks and paper references won’t be discussed today either; I’m trying to keep this lively without too many academic tables.
+
+
+
+I won’t give you a rundown of all the best-performing models today. We also won’t cover training data augmentation or other cool approaches like SeaBear in detail because they go beyond the basics. There are many good resources out there, so feel free to ask me questions.
+
+<ul class="carousel">
+
+  <li><img src="frames/0213.jpg" alt="0213.jpg" class="lightbox"></li>
+
+  <li><img src="frames/0267.jpg" alt="0267.jpg" class="lightbox"></li>
+
+</ul>
+
+## Understanding RAG
+
+Let's get started with the basics of RAG. There is a lot of terminology in AI, especially in the LLM world, that sounds scarier than it actually is. For example, when I hear 'retriever-augmented generation' or RAG, it sounds like an end-to-end system, but it’s not.
+
+
+
+RAG is just doing retrieval to put context into your prompt—before or after you prompt. The act of stitching together retrieval, the 'R' part of RAG, and generation, the 'G' part, is what makes a good RAG system. It's essentially like a pipeline that takes the output of Model A and gives it to Model B.
+
+
+
+A good RAG system consists of a good retrieval pipeline, a good generative model, and an effective way to link them up. When people say 'my RAG doesn’t work,' they need to be more specific—it's like saying 'my car doesn’t work.'
+
+
+
+<ul class="carousel">
+
+  <li><img src="frames/0285.jpg" alt="0285.jpg" class="lightbox"></li>
+
+</ul>
+
+## Compact MVP
+
+So, let’s look at what the compact MVP is. This is the easiest pipeline to bring to production: you have a query, an embedding model, and documents. The documents get embedded and pooled into a single vector; you do cosine similarity search between the vectors for your query and the documents, and that gets you your result.
+
+
+
+This approach is called the bi-encoder approach, though the term might sound scary, it's actually very simple. You precompute all your document embeddings, and at inference, you only encode one thing—the query.
+
+
+
+When you load your model, encode your data, and store your vectors, you then get your query, encode it, and do a cosine similarity search to find the most similar documents. This example was modified from Jeremy’s Hacker's Guide to LLMs.
+
+
+
+You don’t necessarily need a vector database if you’re embedding around 500 documents. However, if you wanted one, it would come into play right after you embed your documents.
+
+
+
+<ul class="carousel">
+
+  <li><img src="frames/0390.jpg" alt="0390.jpg" class="lightbox"></li>
+
+  <li><img src="frames/0432.jpg" alt="0432.jpg" class="lightbox"></li>
+
+  <li><img src="frames/0474.jpg" alt="0474.jpg" class="lightbox"></li>
+
+  <li><img src="frames/0527.jpg" alt="0527.jpg" class="lightbox"></li>
+
+</ul>
+
+## Bi-Encoders
+
+The term 'bi-encoder' refers to encoding things separately with two encoding stages—one for the documents and one for the queries. This is computationally efficient because at inference, you're only ever encoding the query.
+
+
+
+This makes bi-encoders quick, as everything else has been precomputed. If there are questions about this or the quick MVP setup, feel free to ask now or later.
+
+
+
+<ul class="carousel">
+
+  <li><img src="frames/0609.jpg" alt="0609.jpg" class="lightbox"></li>
+
+  <li><img src="frames/0646.jpg" alt="0646.jpg" class="lightbox"></li>
+
+  <li><img src="frames/0791.jpg" alt="0791.jpg" class="lightbox"></li>
+
+  <li><img src="frames/0865.jpg" alt="0865.jpg" class="lightbox"></li>
+
+  <li><img src="frames/0879.jpg" alt="0879.jpg" class="lightbox"></li>
+
+  <li><img src="frames/0989.jpg" alt="0989.jpg" class="lightbox"></li>
+
+  <li><img src="frames/1021.jpg" alt="1021.jpg" class="lightbox"></li>
+
+  <li><img src="frames/1075.jpg" alt="1075.jpg" class="lightbox"></li>
+
+  <li><img src="frames/1123.jpg" alt="1123.jpg" class="lightbox"></li>
+
+  <li><img src="frames/1162.jpg" alt="1162.jpg" class="lightbox"></li>
+
+  <li><img src="frames/1280.jpg" alt="1280.jpg" class="lightbox"></li>
+
+  <li><img src="frames/1357.jpg" alt="1357.jpg" class="lightbox"></li>
+
+  <li><img src="frames/1382.jpg" alt="1382.jpg" class="lightbox"></li>
+
+  <li><img src="frames/1399.jpg" alt="1399.jpg" class="lightbox"></li>
+
+  <li><img src="frames/1500.jpg" alt="1500.jpg" class="lightbox"></li>
+
+  <li><img src="frames/1619.jpg" alt="1619.jpg" class="lightbox"></li>
+
+  <li><img src="frames/2268.jpg" alt="2268.jpg" class="lightbox"></li>
+
+  <li><img src="frames/2842.jpg" alt="2842.jpg" class="lightbox"></li>
+
+  <li><img src="frames/2912.jpg" alt="2912.jpg" class="lightbox"></li>
+
+  <li><img src="frames/2922.jpg" alt="2922.jpg" class="lightbox"></li>
+
+</ul>
+
+![](tmp-fix-to-trigger-lightbox){.lightbox}

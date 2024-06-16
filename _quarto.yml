@@ -1,0 +1,25 @@
+project:
+  type: website
+  output-dir: docs
+  render:
+    - README.md
+    - "*.qmd"
+
+website:
+  title: "Website"
+  navbar:
+    left:
+      - href: README.md
+        text: Home
+
+  sidebar:
+    contents: talks/
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true
+
+
+

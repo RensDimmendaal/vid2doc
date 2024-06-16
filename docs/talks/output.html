@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.553">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Website</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-sidebar floating nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Website</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../README.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../talks/output.html">Talks</a></li><li class="breadcrumb-item"><a href="../talks/output.html">Beyond the Basics of Retrieval for Augmenting Generation (w/ Ben Clavié)</a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Talks</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../talks/output.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Beyond the Basics of Retrieval for Augmenting Generation (w/ Ben Clavié)</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#beyond-the-basics-of-retrieval-for-augmenting-generation-w-ben-clavié" id="toc-beyond-the-basics-of-retrieval-for-augmenting-generation-w-ben-clavié" class="nav-link active" data-scroll-target="#beyond-the-basics-of-retrieval-for-augmenting-generation-w-ben-clavié">Beyond the Basics of Retrieval for Augmenting Generation (w/ Ben Clavié)</a>
+  <ul class="collapse">
+  <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#background" id="toc-background" class="nav-link" data-scroll-target="#background">Background</a></li>
+  <li><a href="#agenda-and-mvp" id="toc-agenda-and-mvp" class="nav-link" data-scroll-target="#agenda-and-mvp">Agenda and MVP</a></li>
+  <li><a href="#monitoring-and-evaluation" id="toc-monitoring-and-evaluation" class="nav-link" data-scroll-target="#monitoring-and-evaluation">Monitoring and Evaluation</a></li>
+  <li><a href="#understanding-rag" id="toc-understanding-rag" class="nav-link" data-scroll-target="#understanding-rag">Understanding RAG</a></li>
+  <li><a href="#compact-mvp" id="toc-compact-mvp" class="nav-link" data-scroll-target="#compact-mvp">Compact MVP</a></li>
+  <li><a href="#bi-encoders" id="toc-bi-encoders" class="nav-link" data-scroll-target="#bi-encoders">Bi-Encoders</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+
+
+<section id="beyond-the-basics-of-retrieval-for-augmenting-generation-w-ben-clavié" class="level1">
+<h1>Beyond the Basics of Retrieval for Augmenting Generation (w/ Ben Clavié)</h1>
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p>Ben Clavier is one of the talented researchers who work at Answer AI. You’ve already heard from several researchers from Answer AI at this conference.</p>
+<p>Ben has a background in information retrieval among other areas. He has an open-source package called Rouille, which you should check out. He brings his deep background in information retrieval to his work on RAG. He’s also one of the clearest thinkers on the topic.</p>
+</section>
+<section id="background" class="level2">
+<h2 class="anchored" data-anchor-id="background">Background</h2>
+<p>I’ll hand it over to you, Ben, to give more details about your background and anything I may have missed. Let’s jump into it.</p>
+<p>So, I think that’s pretty much the key aspect of my background. You read the slide, so I—yes, I do R&amp;D with JY. You’ve seen Jono in this course and other awesome people. We are a distributed R&amp;D lab, doing AI research, and we try to be as open-source as possible because we want people to use what we build.</p>
+<p>Prior to joining Answer AI, I did a lot of NLP and kind of stumbled upon information retrieval because it’s very useful, and everyone wants information retrieval. Today’s talk will help clarify what information retrieval is.</p>
+<p>My claim to fame, or moderate fame at least, is the Rouille library, which makes it much easier to use a family of models called SeaBear. We will briefly mention it today but won’t go into detail. If you want to know more, feel free to ping me on Discord. I maintain the Rouille library, which we will discuss in one of the later slides.</p>
+<ul class="carousel">
+<li>
+<img src="frames/0040.jpg" alt="0040.jpg" class="lightbox">
+</li>
+<li>
+<img src="frames/0099.jpg" alt="0099.jpg" class="lightbox">
+</li>
+</ul>
+</section>
+<section id="agenda-and-mvp" class="level2">
+<h2 class="anchored" data-anchor-id="agenda-and-mvp">Agenda and MVP</h2>
+<p>If you know me or want to follow me, you can find everything on Twitter. I share a lot of memes and chat, but some informative stuff as well. So, let’s get started with what we’re going to talk about today.</p>
+<p>In this half-hour talk, we’ll cover the core retrieval basics as they should exist in your pipelines. RAG is a very nebulous term, and I’ll clarify that. It’s important to ground RAG in reality because it means a lot of different things to different people.</p>
+<p>We will also cover what I call the compact MVP, which is the simplest possible implementation of RAG using vector search. I’ll also show that scary-sounding concepts like bi-encoder, cross-encoder, TF-IDF, and BM25 filtering are actually simple and can be added with just a few lines of code.</p>
+<p>Additionally, we will talk about SeaBear, but only if we have time. With that, let’s move on to the agenda.</p>
+<ul class="carousel">
+<li>
+<img src="frames/0123.jpg" alt="0123.jpg" class="lightbox">
+</li>
+<li>
+<img src="frames/0153.jpg" alt="0153.jpg" class="lightbox">
+</li>
+</ul>
+</section>
+<section id="monitoring-and-evaluation" class="level2">
+<h2 class="anchored" data-anchor-id="monitoring-and-evaluation">Monitoring and Evaluation</h2>
+<p>It’s important to have a clear agenda about what we won’t cover today because those are just as important for RAG. Monitoring and improving RAG systems are critical because RAGs are living systems that need continuous improvement. Jon covered that well in his talk last week, which I recommend watching.</p>
+<p>We won’t talk about evaluations today, but they are extremely important. Joe will cover them in his talk. Benchmarks and paper references won’t be discussed today either; I’m trying to keep this lively without too many academic tables.</p>
+<p>I won’t give you a rundown of all the best-performing models today. We also won’t cover training data augmentation or other cool approaches like SeaBear in detail because they go beyond the basics. There are many good resources out there, so feel free to ask me questions.</p>
+<ul class="carousel">
+<li>
+<img src="frames/0213.jpg" alt="0213.jpg" class="lightbox">
+</li>
+<li>
+<img src="frames/0267.jpg" alt="0267.jpg" class="lightbox">
+</li>
+</ul>
+</section>
+<section id="understanding-rag" class="level2">
+<h2 class="anchored" data-anchor-id="understanding-rag">Understanding RAG</h2>
+<p>Let’s get started with the basics of RAG. There is a lot of terminology in AI, especially in the LLM world, that sounds scarier than it actually is. For example, when I hear ‘retriever-augmented generation’ or RAG, it sounds like an end-to-end system, but it’s not.</p>
+<p>RAG is just doing retrieval to put context into your prompt—before or after you prompt. The act of stitching together retrieval, the ‘R’ part of RAG, and generation, the ‘G’ part, is what makes a good RAG system. It’s essentially like a pipeline that takes the output of Model A and gives it to Model B.</p>
+<p>A good RAG system consists of a good retrieval pipeline, a good generative model, and an effective way to link them up. When people say ‘my RAG doesn’t work,’ they need to be more specific—it’s like saying ‘my car doesn’t work.’</p>
+<ul class="carousel">
+<li>
+<img src="frames/0285.jpg" alt="0285.jpg" class="lightbox">
+</li>
+</ul>
+</section>
+<section id="compact-mvp" class="level2">
+<h2 class="anchored" data-anchor-id="compact-mvp">Compact MVP</h2>
+<p>So, let’s look at what the compact MVP is. This is the easiest pipeline to bring to production: you have a query, an embedding model, and documents. The documents get embedded and pooled into a single vector; you do cosine similarity search between the vectors for your query and the documents, and that gets you your result.</p>
+<p>This approach is called the bi-encoder approach, though the term might sound scary, it’s actually very simple. You precompute all your document embeddings, and at inference, you only encode one thing—the query.</p>
+<p>When you load your model, encode your data, and store your vectors, you then get your query, encode it, and do a cosine similarity search to find the most similar documents. This example was modified from Jeremy’s Hacker’s Guide to LLMs.</p>
+<p>You don’t necessarily need a vector database if you’re embedding around 500 documents. However, if you wanted one, it would come into play right after you embed your documents.</p>
+<ul class="carousel">
+<li>
+<img src="frames/0390.jpg" alt="0390.jpg" class="lightbox">
+</li>
+<li>
+<img src="frames/0432.jpg" alt="0432.jpg" class="lightbox">
+</li>
+<li>
+<img src="frames/0474.jpg" alt="0474.jpg" class="lightbox">
+</li>
+<li>
+<img src="frames/0527.jpg" alt="0527.jpg" class="lightbox">
+</li>
+</ul>
+</section>
+<section id="bi-encoders" class="level2">
+<h2 class="anchored" data-anchor-id="bi-encoders">Bi-Encoders</h2>
+<p>The term ‘bi-encoder’ refers to encoding things separately with two encoding stages—one for the documents and one for the queries. This is computationally efficient because at inference, you’re only ever encoding the query.</p>
+<p>This makes bi-encoders quick, as everything else has been precomputed. If there are questions about this or the quick MVP setup, feel free to ask now or later.</p>
+<ul class="carousel">
+<li>
+<img src="frames/0609.jpg" alt="0609.jpg" class="lightbox">
+</li>
+<li>
+<img src="frames/0646.jpg" alt="0646.jpg" class="lightbox">
+</li>
+<li>
+<img src="frames/0791.jpg" alt="0791.jpg" class="lightbox">
+</li>
+<li>
+<img src="frames/0865.jpg" alt="0865.jpg" class="lightbox">
+</li>
+<li>
+<img src="frames/0879.jpg" alt="0879.jpg" class="lightbox">
+</li>
+<li>
+<img src="frames/0989.jpg" alt="0989.jpg" class="lightbox">
+</li>
+<li>
+<img src="frames/1021.jpg" alt="1021.jpg" class="lightbox">
+</li>
+<li>
+<img src="frames/1075.jpg" alt="1075.jpg" class="lightbox">
+</li>
+<li>
+<img src="frames/1123.jpg" alt="1123.jpg" class="lightbox">
+</li>
+<li>
+<img src="frames/1162.jpg" alt="1162.jpg" class="lightbox">
+</li>
+<li>
+<img src="frames/1280.jpg" alt="1280.jpg" class="lightbox">
+</li>
+<li>
+<img src="frames/1357.jpg" alt="1357.jpg" class="lightbox">
+</li>
+<li>
+<img src="frames/1382.jpg" alt="1382.jpg" class="lightbox">
+</li>
+<li>
+<img src="frames/1399.jpg" alt="1399.jpg" class="lightbox">
+</li>
+<li>
+<img src="frames/1500.jpg" alt="1500.jpg" class="lightbox">
+</li>
+<li>
+<img src="frames/1619.jpg" alt="1619.jpg" class="lightbox">
+</li>
+<li>
+<img src="frames/2268.jpg" alt="2268.jpg" class="lightbox">
+</li>
+<li>
+<img src="frames/2842.jpg" alt="2842.jpg" class="lightbox">
+</li>
+<li>
+<img src="frames/2912.jpg" alt="2912.jpg" class="lightbox">
+</li>
+<li>
+<img src="frames/2922.jpg" alt="2922.jpg" class="lightbox">
+</li>
+</ul>
+<p><a href="tmp-fix-to-trigger-lightbox.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="tmp-fix-to-trigger-lightbox.png" class="img-fluid"></a></p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","loop":false,"openEffect":"zoom","descPosition":"bottom","selector":".lightbox"});
+window.onload = () => {
+  lightboxQuarto.on('slide_before_load', (data) => {
+    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+    const href = trigger.getAttribute('href');
+    if (href !== null) {
+      const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+      if (imgEl !== null) {
+        const srcAttr = imgEl.getAttribute("src");
+        if (srcAttr && srcAttr.startsWith("data:")) {
+          slideConfig.href = srcAttr;
+        }
+      }
+    } 
+  });
+
+  lightboxQuarto.on('slide_after_load', (data) => {
+    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+    if (window.Quarto?.typesetMath) {
+      window.Quarto.typesetMath(slideNode);
+    }
+  });
+
+};
+          </script>
+
+
+
+
+</body></html>

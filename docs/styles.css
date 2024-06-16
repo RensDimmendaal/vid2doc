@@ -1,0 +1,50 @@
+.carousel {
+    display: flex;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding: 10px;
+    list-style: none;
+    margin: 0;
+    scrollbar-width: thin; /* Firefox */
+    scrollbar-color: #888 #e0e0e0; /* Firefox */
+    justify-content: center; /* Center items if fewer than screen width */
+  }
+  
+  .carousel::-webkit-scrollbar {
+    height: 8px;
+  }
+  
+  .carousel::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+  }
+  
+  .carousel::-webkit-scrollbar-track {
+    background: #e0e0e0;
+  }
+  
+  .carousel li {
+    flex: 0 0 auto;
+    scroll-snap-align: start;
+    margin-right: 10px;
+  }
+  
+  .carousel img {
+    max-height: 200px;
+    display: block;
+    cursor: pointer; /* Make it clear that images are clickable */
+  }
+  
+  /* Adjust the margin for the last item to ensure centered alignment */
+  .carousel li:last-child {
+    margin-right: auto;
+  }
+  
+  /* Ensure there is always some space on the left and right for centering */
+  .carousel:before,
+  .carousel:after {
+    content: '';
+    flex: 0 0 auto;
+  }
+  

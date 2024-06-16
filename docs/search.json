@@ -1,0 +1,126 @@
+[
+  {
+    "objectID": "talks/output.html",
+    "href": "talks/output.html",
+    "title": "Beyond the Basics of Retrieval for Augmenting Generation (w/ Ben Clavié)",
+    "section": "",
+    "text": "Ben Clavier is one of the talented researchers who work at Answer AI. You’ve already heard from several researchers from Answer AI at this conference.\nBen has a background in information retrieval among other areas. He has an open-source package called Rouille, which you should check out. He brings his deep background in information retrieval to his work on RAG. He’s also one of the clearest thinkers on the topic.\n\n\n\nI’ll hand it over to you, Ben, to give more details about your background and anything I may have missed. Let’s jump into it.\nSo, I think that’s pretty much the key aspect of my background. You read the slide, so I—yes, I do R&D with JY. You’ve seen Jono in this course and other awesome people. We are a distributed R&D lab, doing AI research, and we try to be as open-source as possible because we want people to use what we build.\nPrior to joining Answer AI, I did a lot of NLP and kind of stumbled upon information retrieval because it’s very useful, and everyone wants information retrieval. Today’s talk will help clarify what information retrieval is.\nMy claim to fame, or moderate fame at least, is the Rouille library, which makes it much easier to use a family of models called SeaBear. We will briefly mention it today but won’t go into detail. If you want to know more, feel free to ping me on Discord. I maintain the Rouille library, which we will discuss in one of the later slides.\n\n\n\n\n\n\n\n\n\n\n\nIf you know me or want to follow me, you can find everything on Twitter. I share a lot of memes and chat, but some informative stuff as well. So, let’s get started with what we’re going to talk about today.\nIn this half-hour talk, we’ll cover the core retrieval basics as they should exist in your pipelines. RAG is a very nebulous term, and I’ll clarify that. It’s important to ground RAG in reality because it means a lot of different things to different people.\nWe will also cover what I call the compact MVP, which is the simplest possible implementation of RAG using vector search. I’ll also show that scary-sounding concepts like bi-encoder, cross-encoder, TF-IDF, and BM25 filtering are actually simple and can be added with just a few lines of code.\nAdditionally, we will talk about SeaBear, but only if we have time. With that, let’s move on to the agenda.\n\n\n\n\n\n\n\n\n\n\n\nIt’s important to have a clear agenda about what we won’t cover today because those are just as important for RAG. Monitoring and improving RAG systems are critical because RAGs are living systems that need continuous improvement. Jon covered that well in his talk last week, which I recommend watching.\nWe won’t talk about evaluations today, but they are extremely important. Joe will cover them in his talk. Benchmarks and paper references won’t be discussed today either; I’m trying to keep this lively without too many academic tables.\nI won’t give you a rundown of all the best-performing models today. We also won’t cover training data augmentation or other cool approaches like SeaBear in detail because they go beyond the basics. There are many good resources out there, so feel free to ask me questions.\n\n\n\n\n\n\n\n\n\n\n\nLet’s get started with the basics of RAG. There is a lot of terminology in AI, especially in the LLM world, that sounds scarier than it actually is. For example, when I hear ‘retriever-augmented generation’ or RAG, it sounds like an end-to-end system, but it’s not.\nRAG is just doing retrieval to put context into your prompt—before or after you prompt. The act of stitching together retrieval, the ‘R’ part of RAG, and generation, the ‘G’ part, is what makes a good RAG system. It’s essentially like a pipeline that takes the output of Model A and gives it to Model B.\nA good RAG system consists of a good retrieval pipeline, a good generative model, and an effective way to link them up. When people say ‘my RAG doesn’t work,’ they need to be more specific—it’s like saying ‘my car doesn’t work.’\n\n\n\n\n\n\n\n\nSo, let’s look at what the compact MVP is. This is the easiest pipeline to bring to production: you have a query, an embedding model, and documents. The documents get embedded and pooled into a single vector; you do cosine similarity search between the vectors for your query and the documents, and that gets you your result.\nThis approach is called the bi-encoder approach, though the term might sound scary, it’s actually very simple. You precompute all your document embeddings, and at inference, you only encode one thing—the query.\nWhen you load your model, encode your data, and store your vectors, you then get your query, encode it, and do a cosine similarity search to find the most similar documents. This example was modified from Jeremy’s Hacker’s Guide to LLMs.\nYou don’t necessarily need a vector database if you’re embedding around 500 documents. However, if you wanted one, it would come into play right after you embed your documents.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nThe term ‘bi-encoder’ refers to encoding things separately with two encoding stages—one for the documents and one for the queries. This is computationally efficient because at inference, you’re only ever encoding the query.\nThis makes bi-encoders quick, as everything else has been precomputed. If there are questions about this or the quick MVP setup, feel free to ask now or later.",
+    "crumbs": [
+      "Home",
+      "Talks",
+      "Beyond the Basics of Retrieval for Augmenting Generation (w/ Ben Clavié)"
+    ]
+  },
+  {
+    "objectID": "talks/output.html#introduction",
+    "href": "talks/output.html#introduction",
+    "title": "Beyond the Basics of Retrieval for Augmenting Generation (w/ Ben Clavié)",
+    "section": "",
+    "text": "Ben Clavier is one of the talented researchers who work at Answer AI. You’ve already heard from several researchers from Answer AI at this conference.\nBen has a background in information retrieval among other areas. He has an open-source package called Rouille, which you should check out. He brings his deep background in information retrieval to his work on RAG. He’s also one of the clearest thinkers on the topic.",
+    "crumbs": [
+      "Home",
+      "Talks",
+      "Beyond the Basics of Retrieval for Augmenting Generation (w/ Ben Clavié)"
+    ]
+  },
+  {
+    "objectID": "talks/output.html#background",
+    "href": "talks/output.html#background",
+    "title": "Beyond the Basics of Retrieval for Augmenting Generation (w/ Ben Clavié)",
+    "section": "",
+    "text": "I’ll hand it over to you, Ben, to give more details about your background and anything I may have missed. Let’s jump into it.\nSo, I think that’s pretty much the key aspect of my background. You read the slide, so I—yes, I do R&D with JY. You’ve seen Jono in this course and other awesome people. We are a distributed R&D lab, doing AI research, and we try to be as open-source as possible because we want people to use what we build.\nPrior to joining Answer AI, I did a lot of NLP and kind of stumbled upon information retrieval because it’s very useful, and everyone wants information retrieval. Today’s talk will help clarify what information retrieval is.\nMy claim to fame, or moderate fame at least, is the Rouille library, which makes it much easier to use a family of models called SeaBear. We will briefly mention it today but won’t go into detail. If you want to know more, feel free to ping me on Discord. I maintain the Rouille library, which we will discuss in one of the later slides.",
+    "crumbs": [
+      "Home",
+      "Talks",
+      "Beyond the Basics of Retrieval for Augmenting Generation (w/ Ben Clavié)"
+    ]
+  },
+  {
+    "objectID": "talks/output.html#agenda-and-mvp",
+    "href": "talks/output.html#agenda-and-mvp",
+    "title": "Beyond the Basics of Retrieval for Augmenting Generation (w/ Ben Clavié)",
+    "section": "",
+    "text": "If you know me or want to follow me, you can find everything on Twitter. I share a lot of memes and chat, but some informative stuff as well. So, let’s get started with what we’re going to talk about today.\nIn this half-hour talk, we’ll cover the core retrieval basics as they should exist in your pipelines. RAG is a very nebulous term, and I’ll clarify that. It’s important to ground RAG in reality because it means a lot of different things to different people.\nWe will also cover what I call the compact MVP, which is the simplest possible implementation of RAG using vector search. I’ll also show that scary-sounding concepts like bi-encoder, cross-encoder, TF-IDF, and BM25 filtering are actually simple and can be added with just a few lines of code.\nAdditionally, we will talk about SeaBear, but only if we have time. With that, let’s move on to the agenda.",
+    "crumbs": [
+      "Home",
+      "Talks",
+      "Beyond the Basics of Retrieval for Augmenting Generation (w/ Ben Clavié)"
+    ]
+  },
+  {
+    "objectID": "talks/output.html#monitoring-and-evaluation",
+    "href": "talks/output.html#monitoring-and-evaluation",
+    "title": "Beyond the Basics of Retrieval for Augmenting Generation (w/ Ben Clavié)",
+    "section": "",
+    "text": "It’s important to have a clear agenda about what we won’t cover today because those are just as important for RAG. Monitoring and improving RAG systems are critical because RAGs are living systems that need continuous improvement. Jon covered that well in his talk last week, which I recommend watching.\nWe won’t talk about evaluations today, but they are extremely important. Joe will cover them in his talk. Benchmarks and paper references won’t be discussed today either; I’m trying to keep this lively without too many academic tables.\nI won’t give you a rundown of all the best-performing models today. We also won’t cover training data augmentation or other cool approaches like SeaBear in detail because they go beyond the basics. There are many good resources out there, so feel free to ask me questions.",
+    "crumbs": [
+      "Home",
+      "Talks",
+      "Beyond the Basics of Retrieval for Augmenting Generation (w/ Ben Clavié)"
+    ]
+  },
+  {
+    "objectID": "talks/output.html#understanding-rag",
+    "href": "talks/output.html#understanding-rag",
+    "title": "Beyond the Basics of Retrieval for Augmenting Generation (w/ Ben Clavié)",
+    "section": "",
+    "text": "Let’s get started with the basics of RAG. There is a lot of terminology in AI, especially in the LLM world, that sounds scarier than it actually is. For example, when I hear ‘retriever-augmented generation’ or RAG, it sounds like an end-to-end system, but it’s not.\nRAG is just doing retrieval to put context into your prompt—before or after you prompt. The act of stitching together retrieval, the ‘R’ part of RAG, and generation, the ‘G’ part, is what makes a good RAG system. It’s essentially like a pipeline that takes the output of Model A and gives it to Model B.\nA good RAG system consists of a good retrieval pipeline, a good generative model, and an effective way to link them up. When people say ‘my RAG doesn’t work,’ they need to be more specific—it’s like saying ‘my car doesn’t work.’",
+    "crumbs": [
+      "Home",
+      "Talks",
+      "Beyond the Basics of Retrieval for Augmenting Generation (w/ Ben Clavié)"
+    ]
+  },
+  {
+    "objectID": "talks/output.html#compact-mvp",
+    "href": "talks/output.html#compact-mvp",
+    "title": "Beyond the Basics of Retrieval for Augmenting Generation (w/ Ben Clavié)",
+    "section": "",
+    "text": "So, let’s look at what the compact MVP is. This is the easiest pipeline to bring to production: you have a query, an embedding model, and documents. The documents get embedded and pooled into a single vector; you do cosine similarity search between the vectors for your query and the documents, and that gets you your result.\nThis approach is called the bi-encoder approach, though the term might sound scary, it’s actually very simple. You precompute all your document embeddings, and at inference, you only encode one thing—the query.\nWhen you load your model, encode your data, and store your vectors, you then get your query, encode it, and do a cosine similarity search to find the most similar documents. This example was modified from Jeremy’s Hacker’s Guide to LLMs.\nYou don’t necessarily need a vector database if you’re embedding around 500 documents. However, if you wanted one, it would come into play right after you embed your documents.",
+    "crumbs": [
+      "Home",
+      "Talks",
+      "Beyond the Basics of Retrieval for Augmenting Generation (w/ Ben Clavié)"
+    ]
+  },
+  {
+    "objectID": "talks/output.html#bi-encoders",
+    "href": "talks/output.html#bi-encoders",
+    "title": "Beyond the Basics of Retrieval for Augmenting Generation (w/ Ben Clavié)",
+    "section": "",
+    "text": "The term ‘bi-encoder’ refers to encoding things separately with two encoding stages—one for the documents and one for the queries. This is computationally efficient because at inference, you’re only ever encoding the query.\nThis makes bi-encoders quick, as everything else has been precomputed. If there are questions about this or the quick MVP setup, feel free to ask now or later.",
+    "crumbs": [
+      "Home",
+      "Talks",
+      "Beyond the Basics of Retrieval for Augmenting Generation (w/ Ben Clavié)"
+    ]
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site"
+  },
+  {
+    "objectID": "README.html",
+    "href": "README.html",
+    "title": "Vid2Doc",
+    "section": "",
+    "text": "Vid2Doc is a tool that generates a document from a video lecture. It uses speech-to-text to transcribe the audio and image processing to extract slides from the video.\nAs an output you get: 1. A markdown file with the text and images in the right position. 2. A html file that shows the images in a gallery 3. All the images extracted from the video"
+  },
+  {
+    "objectID": "README.html#dev-philosophy",
+    "href": "README.html#dev-philosophy",
+    "title": "Vid2Doc",
+    "section": "Dev philosophy",
+    "text": "Dev philosophy\nWe believe that a good UX/UI can compensate for a sloppy AI. Extracting the right frames or making the correct transcription is hard. And AI tools are not perfect. So we need to make the best out of it.\nUX: For the creator That’s why we make a tool that’s easy for the creator to correct the output: markdown. You can edit the text and remove images yourself.\nUI: For the reader We provide an example HTML file that shows the images in a gallery form. This may be useful if you cannot pick that one perfect image that represents the slide or animation. By showing all the images in a gallery the reader can get a good overview of the content, without being overwhelmed."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Website",
+    "section": "",
+    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites."
+  }
+]

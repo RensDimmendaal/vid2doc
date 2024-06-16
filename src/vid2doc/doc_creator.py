@@ -2,8 +2,11 @@ import json
 from pathlib import Path
 import os
 
+import json
+from pathlib import Path
+
 def generate_markdown(json_dir):
-    output_file = Path(json_dir) / 'output.md'
+    output_file = Path(json_dir) / 'output.qmd'
 
     if output_file.exists():
         return output_file
@@ -17,7 +20,6 @@ def generate_markdown(json_dir):
 
     # Get list of image files
     image_files = sorted([f.relative_to(json_dir) for f in frames_dir.glob('*.jpg')])
-
 
     # Function to find relevant images for a given section start time
     def find_relevant_images(start_time):
@@ -33,6 +35,8 @@ def generate_markdown(json_dir):
 
     # Generate Markdown content
     markdown_content = []
+    markdown_content.append("---\nlightbox: true\n---\n")
+
     for s_idx, section in enumerate(data['sections']):
         section_title = section['section_title']
         markdown_content.append(f"## {section_title}\n")
@@ -41,16 +45,23 @@ def generate_markdown(json_dir):
         try:
             end_time = data['sections'][s_idx+1]['paragraphs'][0]['start_time']
         except IndexError:
-                end_time = 99999999999999999
+            end_time = 99999999999999999
 
         relevant_images = [image for image in image_files if start_time < float(image.stem) <= end_time]
-        
-        for image in relevant_images:
-                markdown_content.append(f"![Image]({image})\n")
- 
+
         for paragraph in section['paragraphs']:
             markdown_content.append(f"{paragraph['text']}\n")
             markdown_content.append("\n")
+        
+        if relevant_images:
+            markdown_content.append('<ul class="carousel">\n')
+            for image in relevant_images:
+                alt_text = image.name
+                markdown_content.append(f'  <li><img src="{image}" alt="{alt_text}" class="lightbox"></li>\n')
+            markdown_content.append('</ul>\n')
+
+    # TODO: Temporary fix to trigger lightbox, but creates ugly broken img
+    markdown_content.append("![](tmp-fix-to-trigger-lightbox){.lightbox}")
 
     # Write to Markdown file
     output_file.write_text('\n'.join(markdown_content))
