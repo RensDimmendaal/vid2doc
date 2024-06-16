@@ -8,7 +8,6 @@
     margin: 0;
     scrollbar-width: thin; /* Firefox */
     scrollbar-color: #888 #e0e0e0; /* Firefox */
-    justify-content: center; /* Center items if fewer than screen width */
   }
   
   .carousel::-webkit-scrollbar {
